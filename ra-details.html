@@ -29,8 +29,8 @@
 			<div class="row intro-text align-items-center justify-content-center">
 				<div class="col-md-10 text-center pt-4 pb-3">
 
-					<h1 class="site-heading site-animate"> <strong class="d-block">Data Analytics Dashboard</strong></h1><br>
-					<strong class="d-block text-white text-uppercase letter-spacing">Web Dashboard App to monitor the inspections carried at various Restaurants in Los Angeles City.</strong>
+					<h1 class="site-heading site-animate"> <strong class="d-block">Routing Algorithms</strong></h1><br>
+					<strong class="d-block text-white text-uppercase letter-spacing"> Developed asynchronous message routing procedures for Gossip and Push-sum protocols using the F# Akka Actor Model.</strong>
 
 				</div>
 			</div>
@@ -45,11 +45,11 @@
 					</div>
 				<div class="pl-5 pr-5">
 				<strong>
-					Developing a web application for tracking and analyzing the restaurant market dataset hosted by Los Angeles City. The <a href="https://www.kaggle.com/cityofLA/la-restaurant-market-health-data">dataset</a> contains the inspection results for various restaurants and stores in LA city. Along with tracking the performance of each restaurant, the web application also captures trends in the restaurant behaviours thereby alerting their owners. 
+					Built an asynchronous simulator model for Gossip and Push-sum routing protocols using Akka Actor model. Determined convergence behaviour for the alogrithms for various network topologies such as fully connected network, 2D matrix topology and Line topology.
 					<br>
 					<ul class="pt-2">
-						<li>Technologies Used : <span class="text-white">NodeJS, HTML, JavaScript, Oracle DB</span></li>
-						<li>Project Timeline	:	Oct '19	-	Dec	'19
+						<li>Technologies Used : <span class="text-white">F#, AKKA Actor Model</span></li>
+						<li>Project Timeline	:	Oct	'19
 					</ul>
 					</div>
 				</strong>
@@ -60,67 +60,40 @@
 		<section class="site-item">
 		<div class="container card-tint pt-3 pb-3">
 			<div class="card-heading pl-5 pb-2">
-				<h2 class="font-weight-medium">Approach & <strong>Solution</strong></h2>
+				<h2 class="font-weight-medium">Algorithm <strong>Implementation</strong></h2>
 			</div>
 			<div class="pl-5 pr-5">
-				<strong>
-					<span class="text-white">Phase 1	:	Designing data model and importing data into databases.</span><br>
-					<ul>
-						<li>Physical data model designed for tables with normalizaition</li>
-						<li>Tables created in Oracle database and data was imported.</li>
-					</ul>
-					<span class="text-white">Phase 2	:	Designing mock dashboards & Designing test cases</span><br>
-					<ul>
-						<li>Designed mock dashboards with all necessary metrics highlighted</li>
-						<li>Desinged test cases for boundary conditons.</li>
-					</ul>
-					<span class="text-white">Phase 3	:	Configure API endpoints</span><br>
-					<ul>
-						<li>Decided end point routes for each metric</li>
-						<li>Built controllers and APIs for each view</li>
-					</ul>
-					<span class="text-white">Phase 4	:	Build Front End</span><br>
-					<ul>
-						<li>Developed web pages using HTML/CSS</li>
-						<li>Used JavaScript AJAX requests for fetching data from end points</li>
-					</ul>
-					<span class="text-white">Phase 5	:	Testing</span><br>
-					
-					
-					<h2 class="font-weight-medium pt-4"> <strong>Results</strong></h2>
-					
-					<p align="center">
-
-
-
-					<!--IMAGE SLIDESHOW-->
-					<div class="slideshow-container">
-
-						<div class="mySlides fade">
-							  <img src="images/project/dad-1.jpg" style="width:100%">
-						</div>
-
-						<div class="mySlides fade">
-
-							  <img src="images/project/dad-2.jpg" style="width:100%">
-						</div>
-
-						<div class="mySlides fade">
-							  <img src="images/project/dad-3.png" style="width:100%">
-						</div>
-
-					</div>
-							<br>
-
-							<div style="text-align:center">
-							  <span class="dot"></span> 
-							  <span class="dot"></span> 
-							  <span class="dot"></span> 
-							</div>
-					</p>
-				</strong>
 				
+			<b class="text-white">Gossip	:</b><br>
+			<p class="pl-4">
+				1. The main program initiates child and parent actors. During the child actor initialization, a neighbour array is initialized for each child actor depending on the actor number and the topology.<br>
+				2. Once all the child actors are initialized, the parent actor randomly selects a child actor, say ‘x’ and sends the rumour.
+				3. Actor ‘x’ now selects a random neighbour from its neighbour array, say actor ‘y’ and sends the rumour.<br>
+				4. Upon receiving the rumour, actor ‘y’ again selects a random neighbour from its neighbour array and forwards the rumour. Meanwhile, actor ‘x’ again selects a random neighbour and forwards the rumour.<br>
+				5. This process continues at each actor which receives the rumour, until the actor has received the rumour 10 times. After hearing the rumour 10 times, the actor stops forwarding the rumour and the actor number is added to the terminated actor list.<br>
+				6. Program terminates when the summation of converged nodes and isolated nodes equal number of nodes in the system
+			</p>	<br>
+			
+			<b class="text-white">Push-sum	:</b><br>
+			<p class="pl-4">
+				1. The main program initiates child and parent actors. During the child actor initialization, a neighbour array is initialized for each child actor depending on the actor number and the topology.<br>
+				2. Every child actor contains a value pair (s, w) where s is the actor number and w=1 initially.<br>
+				3. Once all the child actors are initialized, the parent actor randomly selects a child actor, say actor ‘x’ and sends an initiate message.<br>
+				4. Upon receiving the initiate message, actor ‘x’ selects a random neighbour from its neighbour array, say actor ‘y’ and sends half of its (s, w) to the actor i.e. (s/2, w/2)<br>
+				5. When actor ‘y’ receives the message from actor ‘x’, it adds the values of (s,w) received to its own (s,w) values. Next, it selects a random neighbour from its neighbour list and sends half of the newly computed (s,w) while keeping the other half.<br>
+				6. This cycle continues at each node until the node is terminated.<br>
+				7. At every instance when the actor receives a message, it calculates a ratio s/w. If this ratio does not change more than 10^-10 in three consecutive rounds, the actor terminates itself along with updating its status in the terminated actor list.<br>
+				8. Program terminates when the summation of converged nodes and isolated nodes equal number of nodes in the system
+			</p>
 				
+			</div>
+			
+			
+			<div class="card-heading pl-5 pb-2">
+				<h2 class="font-weight-medium "> <strong>Results</strong></h2>
+				<p align="center" class="pt-3">
+					<img src="images/project/ra-1.png" width="40%"> &nbsp &nbsp <img src="images/project/ra-2.jpg" width="40%">
+				</p>
 			</div>
 			
 		</div>

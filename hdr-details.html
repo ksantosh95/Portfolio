@@ -29,8 +29,8 @@
 			<div class="row intro-text align-items-center justify-content-center">
 				<div class="col-md-10 text-center pt-4 pb-3">
 
-					<h1 class="site-heading site-animate"> <strong class="d-block">Data Analytics Dashboard</strong></h1><br>
-					<strong class="d-block text-white text-uppercase letter-spacing">Web Dashboard App to monitor the inspections carried at various Restaurants in Los Angeles City.</strong>
+					<h1 class="site-heading site-animate"> <strong class="d-block">Handwritten Digit Recognition</strong></h1><br>
+					<strong class="d-block text-white text-uppercase letter-spacing">Convolutional Neural Network model for processing 300 x 300 hand written digits and accurately classifying them into appropriate classes.</strong>
 
 				</div>
 			</div>
@@ -45,11 +45,11 @@
 					</div>
 				<div class="pl-5 pr-5">
 				<strong>
-					Developing a web application for tracking and analyzing the restaurant market dataset hosted by Los Angeles City. The <a href="https://www.kaggle.com/cityofLA/la-restaurant-market-health-data">dataset</a> contains the inspection results for various restaurants and stores in LA city. Along with tracking the performance of each restaurant, the web application also captures trends in the restaurant behaviours thereby alerting their owners. 
+					Developed a Convolutional Neural Network (CNN) based model to accurately process noisy, 300 x 300 dimensional handwritten digit image data. To generalize the model, MNIST data was transformed to the required format and appended to the dataset.
 					<br>
 					<ul class="pt-2">
-						<li>Technologies Used : <span class="text-white">NodeJS, HTML, JavaScript, Oracle DB</span></li>
-						<li>Project Timeline	:	Oct '19	-	Dec	'19
+						<li>Technologies Used : <span class="text-white">Python, Tensor Flow and Jupyter</span></li>
+						<li>Project Timeline	:	Mar'19	-	Apr	'19
 					</ul>
 					</div>
 				</strong>
@@ -64,59 +64,75 @@
 			</div>
 			<div class="pl-5 pr-5">
 				<strong>
-					<span class="text-white">Phase 1	:	Designing data model and importing data into databases.</span><br>
+					<span class="text-white">Phase 1	:	Data pre-processing.</span><br>
 					<ul>
-						<li>Physical data model designed for tables with normalizaition</li>
-						<li>Tables created in Oracle database and data was imported.</li>
+						<li>Noise removal:	Images were converted to a binary scale with all pixels with value less than 120 set to 0.</li>
+						<li>Colour Inversion:	White and black colours were switched to make the image background black.</li>
 					</ul>
-					<span class="text-white">Phase 2	:	Designing mock dashboards & Designing test cases</span><br>
+					<span class="text-white">Phase 2	:	Augmenting the Data</span><br>
 					<ul>
-						<li>Designed mock dashboards with all necessary metrics highlighted</li>
-						<li>Desinged test cases for boundary conditons.</li>
+						<li>MNIST Data:	Resized the default 28 x 28 MNIST data to 100 x 100. Padded back background to convert these images into 300 x 300.</li>
+						<li>Split the dataset into train and test datasets</li>
 					</ul>
-					<span class="text-white">Phase 3	:	Configure API endpoints</span><br>
+					<span class="text-white">Phase 3	:	Training the Model</span><br>
 					<ul>
-						<li>Decided end point routes for each metric</li>
-						<li>Built controllers and APIs for each view</li>
+						<li>Multiple iterations and combinations were used to determine the most accurate configuration for the network.</li>
+						<p align="center" class="pt-3">
+							<img src="images/project/hdr-1.png" width="70%">
+						</p>
 					</ul>
-					<span class="text-white">Phase 4	:	Build Front End</span><br>
+					<span class="text-white">Phase 4	:	Testing the model</span><br>
 					<ul>
-						<li>Developed web pages using HTML/CSS</li>
-						<li>Used JavaScript AJAX requests for fetching data from end points</li>
+						<li>Trained model is used against the unseen data to evaluate the model accuracy.</li>
+						<li>To ensure that the model does not overfit, It is evaluated in multiple rounds</li>
 					</ul>
-					<span class="text-white">Phase 5	:	Testing</span><br>
+
 					
+					
+					<h2 class="font-weight-medium pt-4"> <strong>Experiments</strong></h2>
+					<span class="text-white">1.	Dimensionality Reduction</span><br>
+					<ul>
+						<p align="center" class="pt-3">
+							<img src="images/project/hdr-2.jpg" width="40%">
+						</p>
+						<li>As shown in the graph above, nearly 900 components are required to preserve a close to 100% variance. However, due to the noise in the data, the accuracy of the model significantly dropped. Moreover, since CNN works by convolving the data and reducing the dimensions at each layer, thus an external dimensionality reduction process was discarded</li>
+					</ul>
+					
+					<span class="text-white">2.	Number of Layers for CNN</span><br>
+					<ul>
+						<p align="center" class="pt-3">
+							<img src="images/project/hdr-3.jpg" width="40%">
+						</p>
+						<li>Multiple iterations were performed with different configurations for layers. Most accurate classification was observed with 6 layers</li>
+					</ul>
+			
+					
+					<span class="text-white">3.	Number of Epochs</span><br>
+					<ul>
+						
+						<li>Model was simulated for 30 epochs to determine the most accurate configuration.</li>
+						<p align="center" class="pt-3">
+							<img src="images/project/hdr-4.jpg" width="40%" ><img src="images/project/hdr-5.jpg" width="40%">
+						</p>
+						<li>Since the model has high accuracy at 19 epochs, it was finalized as the optimal configuration.</li>
+					</ul>
+					
+					<span class="text-white">4.	Amount of MNIST data to add</span><br>
+					<ul>
+						
+						<li>Accuracies were compared for source data, MNIST data and combined data to determine the number of data points to be added</li>
+						<p align="center" class="pt-3">
+							<img src="images/project/hdr-6.jpg" width="40%" >
+						</p>
+						<li>Since the highest accuracy is obtained by adding 2000 MNIST data points, it was selected as the optimal configuration.</li>
+					</ul>
+				
 					
 					<h2 class="font-weight-medium pt-4"> <strong>Results</strong></h2>
+					Accuracy on Test data	:	<b class="text-white">94.68%</b>
 					
-					<p align="center">
 
-
-
-					<!--IMAGE SLIDESHOW-->
-					<div class="slideshow-container">
-
-						<div class="mySlides fade">
-							  <img src="images/project/dad-1.jpg" style="width:100%">
-						</div>
-
-						<div class="mySlides fade">
-
-							  <img src="images/project/dad-2.jpg" style="width:100%">
-						</div>
-
-						<div class="mySlides fade">
-							  <img src="images/project/dad-3.png" style="width:100%">
-						</div>
-
-					</div>
-							<br>
-
-							<div style="text-align:center">
-							  <span class="dot"></span> 
-							  <span class="dot"></span> 
-							  <span class="dot"></span> 
-							</div>
+					
 					</p>
 				</strong>
 				

@@ -29,8 +29,8 @@
 			<div class="row intro-text align-items-center justify-content-center">
 				<div class="col-md-10 text-center pt-4 pb-3">
 
-					<h1 class="site-heading site-animate"> <strong class="d-block">Data Analytics Dashboard</strong></h1><br>
-					<strong class="d-block text-white text-uppercase letter-spacing">Web Dashboard App to monitor the inspections carried at various Restaurants in Los Angeles City.</strong>
+					<h1 class="site-heading site-animate"> <strong class="d-block">Sentiment Analysis</strong></h1><br>
+					<strong class="d-block text-white text-uppercase letter-spacing">Web Tool to determine whether a user feedback is positive or negative</strong>
 
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 					</div>
 				<div class="pl-5 pr-5">
 				<strong>
-					Developing a web application for tracking and analyzing the restaurant market dataset hosted by Los Angeles City. The <a href="https://www.kaggle.com/cityofLA/la-restaurant-market-health-data">dataset</a> contains the inspection results for various restaurants and stores in LA city. Along with tracking the performance of each restaurant, the web application also captures trends in the restaurant behaviours thereby alerting their owners. 
+					Amazon SageMaker based machine learning model supported with a simple user interface to determine whether the text feedback submitted by the user is positive or negative.
 					<br>
 					<ul class="pt-2">
 						<li>Technologies Used : <span class="text-white">NodeJS, HTML, JavaScript, Oracle DB</span></li>
@@ -64,59 +64,30 @@
 			</div>
 			<div class="pl-5 pr-5">
 				<strong>
-					<span class="text-white">Phase 1	:	Designing data model and importing data into databases.</span><br>
+					<span class="text-white">Phase 1	:	Data Pre-Processing</span><br>
 					<ul>
-						<li>Physical data model designed for tables with normalizaition</li>
-						<li>Tables created in Oracle database and data was imported.</li>
+						<li>Labelled training data is used for pre-processing. Since the user feedback is a text object, all words are converted to lowercase and stop words are removed.</li>
+						<li>A word dictionary of 5000 most frequent words is created and stored in a matrix.</li>
+						<li>Each user response is then compared with the word dictionary and each bit from the 5000 words is set to 1 or 0 based on its existence. </li>
+						<li>Thus, each text response is converted into an array of binary numbers of size 5000.
 					</ul>
-					<span class="text-white">Phase 2	:	Designing mock dashboards & Designing test cases</span><br>
+					<span class="text-white">Phase 2	:	Training & Testing the Model</span><br>
 					<ul>
-						<li>Designed mock dashboards with all necessary metrics highlighted</li>
-						<li>Desinged test cases for boundary conditons.</li>
+						<li>XgBoost model is used for training.</li>
+						<li>Model is evaluated against the validation set.</li>
 					</ul>
-					<span class="text-white">Phase 3	:	Configure API endpoints</span><br>
+					<span class="text-white">Phase 3	:	Deploying the model</span><br>
 					<ul>
-						<li>Decided end point routes for each metric</li>
-						<li>Built controllers and APIs for each view</li>
-					</ul>
-					<span class="text-white">Phase 4	:	Build Front End</span><br>
-					<ul>
-						<li>Developed web pages using HTML/CSS</li>
-						<li>Used JavaScript AJAX requests for fetching data from end points</li>
-					</ul>
-					<span class="text-white">Phase 5	:	Testing</span><br>
-					
+						<li>Simple HTML UI is created for accepting a user response and initiating a HTTP request to an endpoint.</li>
+						<li>A Lambda function is set up on AWS to run whenever it receives a request.</li>
+						<li>An API Gateway is set up next to trigger the lambda function and access the endpoint</li>
+					</ul>		
 					
 					<h2 class="font-weight-medium pt-4"> <strong>Results</strong></h2>
 					
 					<p align="center">
 
-
-
-					<!--IMAGE SLIDESHOW-->
-					<div class="slideshow-container">
-
-						<div class="mySlides fade">
-							  <img src="images/project/dad-1.jpg" style="width:100%">
-						</div>
-
-						<div class="mySlides fade">
-
-							  <img src="images/project/dad-2.jpg" style="width:100%">
-						</div>
-
-						<div class="mySlides fade">
-							  <img src="images/project/dad-3.png" style="width:100%">
-						</div>
-
-					</div>
-							<br>
-
-							<div style="text-align:center">
-							  <span class="dot"></span> 
-							  <span class="dot"></span> 
-							  <span class="dot"></span> 
-							</div>
+						<img src="images/project/sa-1.gif" width="50%">
 					</p>
 				</strong>
 				
