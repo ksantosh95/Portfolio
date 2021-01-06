@@ -200,8 +200,11 @@ a {
     transform: translateX(-50%); }
 
 .lead {
+	color:#A8AEA1;
   font-weight: 200;
-  line-height: 1.5; }
+  font-size:1rem;
+  line-height: 1.4; 
+  }
 
 .site-service-item {
   background: #333;
@@ -724,4 +727,11 @@ a {
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
+}
+
+
+.text-white-bold
+{
+	color:#fff;
+	font-weight:400;
 }
