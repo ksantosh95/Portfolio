@@ -330,6 +330,7 @@ a {
         color: #bac964; }
 
 .single-portfolio {
+
   margin-bottom: 50px;
   display: block; }
   .single-portfolio .relative {
@@ -734,4 +735,13 @@ a {
 {
 	color:#fff;
 	font-weight:400;
+}
+
+
+.grid{
+	height:100%;
+}
+
+.grid-item{
+	heigh:100;
 }
