@@ -318,7 +318,16 @@
 	};
 
 
-	$(function(){
+	
+	
+	
+	$('#grid').imagesLoaded()
+	.always( function( instance ) {
+		console.log('all images loaded');
+		})
+	.done( function( instance ) {
+		console.log('all images successfully loaded');
+		$(function(){
 
 		OnePageNav();
 		offCanvasNav();
@@ -328,14 +337,6 @@
 		smoothScroll();
 		portfolioMasonry();
 	});
-	
-	
-	$('#container').imagesLoaded()
-	.always( function( instance ) {
-		console.log('all images loaded');
-		})
-	.done( function( instance ) {
-		console.log('all images successfully loaded');
 		})
 	.fail( function() {
 		console.log('all images loaded, at least one is broken');
