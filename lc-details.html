@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Project Details</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+	<link href="css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+
+	<div class="container pt-4 ">
+	<a class="btn "href="index.html#section-portfolio"> << Back to Projects </a>
+	</div>
+		
+		
+		<!-- Title Card-->
+		<section class="site-item">
+		<div class="container card-hard-tint">
+			<div class="row intro-text align-items-center justify-content-center">
+				<div class="col-md-10 text-center pt-4 pb-3">
+
+					<h1 class="site-heading site-animate"> <strong class="d-block">Lua Compiler</strong></h1><br>
+					<strong class="d-block text-white text-uppercase letter-spacing">Compiler written in Java for LUA programming language</strong>
+
+				</div>
+			</div>
+		</div>
+		</section>
+		
+		<!-- Project Desc Card-->
+		<section class="site-item ">
+		<div class="container card-tint pt-3 pb-3">
+				<div class="card-heading pt-4 pl-5">
+						<h2 class="font-weight-medium">Project <strong>Overview</strong></h2>
+					</div>
+				<div class="pl-5 pr-5">
+				<strong>
+					This project consists of a scanner, parser and interpreter for Lua programming language. The <a href="http://lua-users.org/wiki/LuaFourOneGrammar">grammar</a> for Lua language is referred to compile the inputs. Program is written in Java with ASM byte code framework. 
+					<br>
+					<ul class="pt-2">
+						<li>Technologies Used : <span class="text-white">Java, ASM framework</span></li>
+						<li>Project Timeline	:	Sept '19	-	Dec	'19
+					</ul>
+					</div>
+				</strong>
+		</div>
+		</section>
+		
+		<!-- Project Solution Card-->
+		<section class="site-item">
+		<div class="container card-tint pt-3 pb-3">
+			<div class="card-heading pl-5 pb-2">
+				<h2 class="font-weight-medium">Approach & <strong>Solution</strong></h2>
+			</div>
+			<div class="pl-5 pr-5">
+				<strong>
+					<span class="text-white">Phase 1	:	Scanner.</span><br>
+					<ul>
+						<li>Built a scanner process to read the input from a file and tokenize each word</li>
+					</ul>
+					<span class="text-white">Phase 2	:	Parser</span><br>
+					<ul>
+						<li>Classified each input token and grouped tokens of the same category</li>
+						<li>for instance <i>"if x > y"</i> would be read as 4 different tokens in step 1. These tokens were combined as an if statement in this phase.</li>
+					</ul>
+					<span class="text-white">Phase 3	:	Interpreter</span><br>
+					<ul>
+						<li>Each statement from phase 2 is evaluated and results are computed</li>
+					</ul>
+
+					
+					
+					<h2 class="font-weight-medium pt-4"> <strong>Result</strong></h2>
+					
+					<p align="center">
+						<img src="images/project/lc-1.gif" style="width:100%">
+
+					</p>
+				</strong>
+				
+				
+			</div>
+			
+		</div>
+		</section>
+		
+
+
+	<div class="container pt-4 ">
+	<a class="btn "href="index.html#section-portfolio"> << Back to Projects </a>
+	</div>
+
+
+
+	
+
+	<footer class="site-footer">
+		<div class="container">
+
+			<div class="row mb-5">
+				<p class="col-12 text-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true" ></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
+			</div>
+			
+			
+			
+		</div>
+	</footer>
+
+
+
+
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/vendor/popper.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+
+	<script src="js/vendor/jquery.easing.1.3.js"></script>
+
+	<script src="js/vendor/jquery.stellar.min.js"></script>
+	<script src="js/vendor/jquery.waypoints.min.js"></script>
+
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+	<script src="js/custom.js"></script>
+
+	<!-- Google Map -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    	<script src="js/google-map.js"></script> -->
+
+
+	<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3500); // Change image every 2 seconds
+}
+</script>
+
+    </body>
+    </html>
